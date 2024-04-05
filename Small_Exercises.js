@@ -221,7 +221,7 @@ console.log(
   }.`
 );
 */
-
+/*
 // Get Middle Character
 function centerOf(string) {
   if (string.length % 2 === 1) {
@@ -248,3 +248,145 @@ function negative(number) {
 negative(5); // -5
 negative(-3); // -3
 negative(0); // -0
+
+*/
+
+// ddaaiillyy ddoouubbllee
+
+function crunch(string) {
+  let index = 0;
+  let crunchText = "";
+
+  while (index <= string.length - 1) {
+    if (string[index] !== string[index + 1]) {
+      crunchText += string[index];
+    }
+    index += 1;
+  }
+  return crunchText;
+}
+
+// Bannerizer
+
+function logInBox(message) {
+  let horizontalRule = `+${"-".repeat(message.length + 2)}+`;
+  let emptyLine = `|${" ".repeat(message.length + 2)}|`;
+
+  console.log(horizontalRule);
+  console.log(emptyLine);
+  console.log(`| ${message} |`);
+  console.log(emptyLine);
+  console.log(horizontalRule);
+}
+
+// logInBox("To boldly go where no one has gone before.");
+
+// Stringy Strings
+
+function stringy(number) {
+  let result = "";
+
+  for (let i = 1; i <= number; i += 1) {
+    let number = i % 2 === 0 ? 0 : 1;
+    result += number;
+  }
+  return result;
+}
+
+// Right Triangles
+
+function triangle(number) {
+  let spaces = number - 1;
+  let stars = 1;
+  for (i = 1; i <= number; i++) {
+    console.log(`${" ".repeat(spaces)}${"*".repeat(stars)}`);
+    spaces -= 1;
+    stars += 1;
+  }
+}
+
+/* Mad Libs
+let readlineSync = require("readline-sync");
+
+console.log("Enter a noun:");
+let noun = readlineSync.prompt();
+
+console.log("Enter a verb:");
+let verb = readlineSync.prompt();
+
+console.log("Enter an adjective:");
+let adjective = readlineSync.prompt();
+
+console.log("Enter an adverb:");
+let adverb = readlineSync.prompt();
+
+let sentence1 = `Do you ${verb} your ${adjective} ${noun} ${adverb}? That's hilarious!`;
+let sentence2 = `The ${adjective} ${noun} ${verb}s ${adverb} over the lazy dog.`;
+let sentence3 = `The ${noun} ${adverb} ${verb}s up ${adjective} Joe's turtle.`;
+
+console.log(sentence1);
+console.log(sentence2);
+console.log(sentence3);
+*/
+
+// Double Doubles
+function twice(number) {
+  let stringNumber = String(number);
+  let center = stringNumber.length / 2;
+
+  if (stringNumber.substring(0, center) === stringNumber.substring(center)) {
+    return number;
+  } else {
+    return number * 2;
+  }
+}
+
+// Grade Book
+function getGrade(grade1, grade2, grade3) {
+  let average = (grade1 + grade2 + grade3) / 3;
+
+  if (average >= 90) {
+    return "A";
+  } else if (average >= 80) {
+    return "B";
+  } else if (average >= 70) {
+    return "C";
+  } else if (average >= 60) {
+    return "D";
+  } else {
+    return "F";
+  }
+}
+
+// Clean up the words
+function cleanUp(text) {
+  let cleanText = "";
+
+  for (let idx = 0; idx < text.length; idx += 1) {
+    if (isLowerCaseLetter(text[idx]) || isUpperCaseLetter(text[idx])) {
+      cleanText += text[idx];
+    } else if (idx === 0 || lastChar(cleanText) !== " ") {
+      cleanText += " ";
+    }
+  }
+
+  return cleanText;
+}
+
+function lastChar(text) {
+  return text[text.length - 1];
+}
+
+function isLowerCaseLetter(char) {
+  return char >= "a" && char <= "z";
+}
+
+function isUpperCaseLetter(char) {
+  return char >= "A" && char <= "Z";
+}
+
+// What Century is That?
+function century(year) {
+  let centuryNumber = Math.ceil(year / 100);
+  return String(centuryNumber) + centurySuffix(centuryNumber);
+}
